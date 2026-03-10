@@ -107,7 +107,13 @@ def analyze(req: AnalyzeRequest, background_tasks: BackgroundTasks, user=Depends
             reply=result["reply"]["reply"]
         )
         ticket_data = ticket[0] if isinstance(ticket, list) and len(ticket) > 0 else ticket
-        background_tasks.add_task(send_to_n8n, ticket_data)
+        
+        # Inject the customer email into the payload for n8n before sending
+        webhook_payload = dict(ticket_data)
+        webhook_payload["customer_email"] = user["email"]
+        webhook_payload["customer_name"] = user["name"]
+        
+        background_tasks.add_task(send_to_n8n, webhook_payload)
         
         return {
             "original": req.text,

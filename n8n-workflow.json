@@ -1,0 +1,179 @@
+{
+  "name": "Multilingual Support Ticket Router",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "support-ticket",
+        "authentication": "headerAuth",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "e4451007-88eb-4099-b1d5-2def20b5f541",
+      "name": "Receive Ticket Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        200,
+        300
+      ],
+      "webhookId": "2c65e5e3-4416-43d9-9520-22165c6fbe36"
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.intent }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "billing",
+              "outputKey": "Billing Team"
+            },
+            {
+              "value2": "technical issue",
+              "outputKey": "IT Team"
+            },
+            {
+              "value2": "refund",
+              "outputKey": "Finance Team"
+            }
+          ]
+        },
+        "fallbackOutput": 3
+      },
+      "id": "0d20dcf1-2f63-44db-bbba-c9a89c922a90",
+      "name": "Route by Intent",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        480,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "support-agent@yourdomain.com",
+        "toEmail": "billing-test@example.com",
+        "subject": "=New 🔥 Billing Ticket - Urgent: {{ $json.body.urgency }}",
+        "html": "=<h2>New Support Ticket (Billing)</h2><p><strong>Customer Name:</strong> {{ $json.body.customer_name }}</p><p><strong>Customer Email:</strong> <a href=\"mailto:{{ $json.body.customer_email }}\">{{ $json.body.customer_email }}</a></p><hr><p><strong>Intent:</strong> {{ $json.body.intent }}</p><p><strong>Sentiment:</strong> {{ $json.body.sentiment }}</p><p><strong>Language:</strong> {{ $json.body.language }}</p><hr><p><strong>Original Message:</strong></p><p>{{ $json.body.original_message }}</p><hr><p><strong>English Translation:</strong></p><p>{{ $json.body.translated_text }}</p><hr><p><strong>Auto-Reply Sent to User:</strong></p><p>{{ $json.body.reply }}</p>",
+        "options": {}
+      },
+      "id": "1bc6fbd3-29a3-4813-82ef-dcfedb94ad14",
+      "name": "Send to Billing",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [
+        780,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "support-agent@yourdomain.com",
+        "toEmail": "it-test@example.com",
+        "subject": "=New 💻 IT Support Ticket - Urgent: {{ $json.body.urgency }}",
+        "html": "=<h2>New Support Ticket (Technical)</h2><p><strong>Customer Name:</strong> {{ $json.body.customer_name }}</p><p><strong>Customer Email:</strong> <a href=\"mailto:{{ $json.body.customer_email }}\">{{ $json.body.customer_email }}</a></p><hr><p><strong>Intent:</strong> {{ $json.body.intent }}</p><p><strong>Sentiment:</strong> {{ $json.body.sentiment }}</p><p><strong>Language:</strong> {{ $json.body.language }}</p><hr><p><strong>Original Message:</strong></p><p>{{ $json.body.original_message }}</p><hr><p><strong>English Translation:</strong></p><p>{{ $json.body.translated_text }}</p><hr><p><strong>Auto-Reply Sent to User:</strong></p><p>{{ $json.body.reply }}</p>",
+        "options": {}
+      },
+      "id": "92f7596a-115f-4a0b-9ee0-d2cf1e9df640",
+      "name": "Send to IT",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [
+        780,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "support-agent@yourdomain.com",
+        "toEmail": "finance-test@example.com",
+        "subject": "=New 💸 Refund Ticket - Urgent: {{ $json.body.urgency }}",
+        "html": "=<h2>New Support Ticket (Refund)</h2><p><strong>Customer Name:</strong> {{ $json.body.customer_name }}</p><p><strong>Customer Email:</strong> <a href=\"mailto:{{ $json.body.customer_email }}\">{{ $json.body.customer_email }}</a></p><hr><p><strong>Intent:</strong> {{ $json.body.intent }}</p><p><strong>Sentiment:</strong> {{ $json.body.sentiment }}</p><p><strong>Language:</strong> {{ $json.body.language }}</p><hr><p><strong>Original Message:</strong></p><p>{{ $json.body.original_message }}</p><hr><p><strong>English Translation:</strong></p><p>{{ $json.body.translated_text }}</p><hr><p><strong>Auto-Reply Sent to User:</strong></p><p>{{ $json.body.reply }}</p>",
+        "options": {}
+      },
+      "id": "87e35ccb-426b-4ac5-b0b2-113aa072a392",
+      "name": "Send to Finance",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [
+        780,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "support-agent@yourdomain.com",
+        "toEmail": "general-test@example.com",
+        "subject": "=New 📬 General Support Ticket - Urgent: {{ $json.body.urgency }}",
+        "html": "=<h2>New Support Ticket (General/Complaint)</h2><p><strong>Customer Name:</strong> {{ $json.body.customer_name }}</p><p><strong>Customer Email:</strong> <a href=\"mailto:{{ $json.body.customer_email }}\">{{ $json.body.customer_email }}</a></p><hr><p><strong>Intent:</strong> {{ $json.body.intent }}</p><p><strong>Sentiment:</strong> {{ $json.body.sentiment }}</p><p><strong>Language:</strong> {{ $json.body.language }}</p><hr><p><strong>Original Message:</strong></p><p>{{ $json.body.original_message }}</p><hr><p><strong>English Translation:</strong></p><p>{{ $json.body.translated_text }}</p><hr><p><strong>Auto-Reply Sent to User:</strong></p><p>{{ $json.body.reply }}</p>",
+        "options": {}
+      },
+      "id": "d13540ae-e7d6-4fe4-aa68-bb4e2f2e0321",
+      "name": "Send to General Support",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [
+        780,
+        700
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Receive Ticket Webhook": {
+      "main": [
+        [
+          {
+            "node": "Route by Intent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by Intent": {
+      "main": [
+        [
+          {
+            "node": "Send to Billing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send to IT",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send to Finance",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send to General Support",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f0502a90-333e-4363-bee6-a6fc7ba0a0f5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e0bddd7cdbb6aaecb4f8d6263543ce9c2c019d5c3f9156fe45b81ae20399eff1"
+  },
+  "id": "xJks4D7Y8mOp",
+  "tags": []
+}
