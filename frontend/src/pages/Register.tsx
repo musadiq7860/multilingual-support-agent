@@ -36,12 +36,12 @@ export default function Register() {
         <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '220px', height: '220px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(74,222,128,0.07) 0%, transparent 70%)' }} />
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span className="dot dot-green pulse" />
-          <span style={{ fontFamily: 'Manrope', fontWeight: '700', fontSize: '13px', letterSpacing: '0.08em', color: 'var(--brand-secondary)' }}>NEW ACCOUNT</span>
+          <span style={{ fontFamily: 'Manrope', fontWeight: '700', fontSize: '13px', letterSpacing: '0.08em', color: 'var(--green)' }}>NEW ACCOUNT</span>
         </div>
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-          <h1 style={{ fontSize: '72px', lineHeight: '0.92', marginBottom: '24px', color: 'var(--text-primary)' }}>
+          <h1 style={{ fontSize: '72px', lineHeight: '0.92', marginBottom: '24px', color: 'var(--cream)' }}>
             JOIN<br />
-            <span style={{ color: 'var(--brand-secondary)', WebkitTextStroke: '1px var(--brand-secondary)', WebkitTextFillColor: 'transparent' }}>THE</span><br />
+            <span style={{ color: 'var(--green)', WebkitTextStroke: '1px var(--green)', WebkitTextFillColor: 'transparent' }}>THE</span><br />
             SYSTEM
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '13px', lineHeight: '1.7', maxWidth: '280px' }}>
@@ -85,7 +85,7 @@ export default function Register() {
             <div className="divider" />
             <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '12px' }}>
               Already have an account?{' '}
-              <Link to="/login" style={{ color: 'var(--brand-secondary)', textDecoration: 'none', fontWeight: '600' }}>Sign in</Link>
+              <Link to="/login" style={{ color: 'var(--orange)', textDecoration: 'none', fontWeight: '600' }}>Sign in</Link>
             </p>
           </div>
         </motion.div>
