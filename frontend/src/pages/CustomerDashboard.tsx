@@ -51,11 +51,11 @@ export default function CustomerDashboard() {
       <div style={{ borderBottom: '1px solid var(--border)', padding: '14px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-surface)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span className="dot dot-orange pulse" />
-          <span style={{ fontFamily: 'Bebas Neue', fontSize: '18px', letterSpacing: '0.1em', color: 'var(--orange)' }}>SUPPORT AGENT</span>
+          <span style={{ fontFamily: 'Bebas Neue', fontSize: '18px', letterSpacing: '0.1em', color: 'var(--brand-secondary)' }}>SUPPORT AGENT</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <span style={{ color: 'var(--text-secondary)', fontSize: '12px', fontFamily: 'Manrope' }}>
-            Logged in as <span style={{ color: 'var(--cream)' }}>{name}</span>
+            Logged in as <span style={{ color: 'var(--text-primary)' }}>{name}</span>
           </span>
           <button className="btn btn-ghost" onClick={handleLogout} style={{ padding: '7px 14px', fontSize: '12px' }}>Logout</button>
         </div>
@@ -88,14 +88,14 @@ export default function CustomerDashboard() {
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-orange)', borderRadius: 'var(--radius-lg)', padding: '24px', marginBottom: '32px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '18px' }}>
                 <span className="dot dot-orange" />
-                <span style={{ fontFamily: 'Manrope', fontWeight: '700', fontSize: '11px', letterSpacing: '0.1em', color: 'var(--orange)' }}>AI ANALYSIS</span>
+                <span style={{ fontFamily: 'Manrope', fontWeight: '700', fontSize: '11px', letterSpacing: '0.1em', color: 'var(--brand-secondary)' }}>AI ANALYSIS</span>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '16px' }}>
                 {[
-                  { label: 'LANGUAGE', value: result.language?.language?.toUpperCase(), sub: `${result.language?.confidence}% confidence`, color: 'var(--orange)' },
-                  { label: 'INTENT', value: result.intent?.intent, sub: `${result.intent?.confidence}% confidence`, color: 'var(--cream)' },
-                  { label: 'SENTIMENT', value: result.sentiment?.sentiment, sub: `${result.sentiment?.confidence}% confidence`, color: result.sentiment?.sentiment === 'negative' ? 'var(--red)' : result.sentiment?.sentiment === 'positive' ? 'var(--green)' : 'var(--cream)' },
+                  { label: 'LANGUAGE', value: result.language?.language?.toUpperCase(), sub: `${result.language?.confidence}% confidence`, color: 'var(--brand-secondary)' },
+                  { label: 'INTENT', value: result.intent?.intent, sub: `${result.intent?.confidence}% confidence`, color: 'var(--text-primary)' },
+                  { label: 'SENTIMENT', value: result.sentiment?.sentiment, sub: `${result.sentiment?.confidence}% confidence`, color: result.sentiment?.sentiment === 'negative' ? 'var(--red)' : result.sentiment?.sentiment === 'positive' ? 'var(--green)' : 'var(--text-primary)' },
                   { label: 'URGENCY', value: result.urgency?.toUpperCase(), sub: result.urgency === 'high' ? 'Escalated priority' : 'Standard priority', color: result.urgency === 'high' ? 'var(--red)' : 'var(--green)' },
                 ].map(cell => (
                   <div key={cell.label} style={{ background: 'var(--bg-base)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '14px' }}>
@@ -106,9 +106,9 @@ export default function CustomerDashboard() {
                 ))}
               </div>
 
-              <div style={{ background: 'var(--bg-base)', border: '1px solid var(--border)', borderLeft: '3px solid var(--orange)', borderRadius: 'var(--radius)', padding: '14px 16px' }}>
+              <div style={{ background: 'var(--bg-base)', border: '1px solid var(--border)', borderLeft: '3px solid var(--brand-secondary)', borderRadius: 'var(--radius)', padding: '14px 16px' }}>
                 <div style={{ fontSize: '10px', color: 'var(--text-secondary)', fontFamily: 'Manrope', fontWeight: '600', letterSpacing: '0.1em', marginBottom: '8px' }}>AI REPLY</div>
-                <p style={{ fontSize: '13px', lineHeight: '1.65', color: 'var(--cream)' }}>{result.reply?.reply}</p>
+                <p style={{ fontSize: '13px', lineHeight: '1.65', color: 'var(--text-primary)' }}>{result.reply?.reply}</p>
               </div>
             </motion.div>
           )}
@@ -134,11 +134,11 @@ export default function CustomerDashboard() {
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                       <span className={`badge badge-${ticket.urgency === 'high' ? 'high' : 'normal'}`}>{ticket.urgency}</span>
                       <span className={`badge badge-${ticket.status}`}>{ticket.status}</span>
-                      <span className="badge" style={{ background: 'var(--orange-dim)', color: 'var(--orange)', border: '1px solid var(--border-orange)' }}>{ticket.intent}</span>
+                      <span className="badge" style={{ background: 'var(--brand-secondary-dim)', color: 'var(--brand-secondary)', border: '1px solid var(--border-orange)' }}>{ticket.intent}</span>
                     </div>
                     <span style={{ fontSize: '11px', color: 'var(--text-muted)', whiteSpace: 'nowrap', fontFamily: 'Manrope' }}>{new Date(ticket.created_at).toLocaleDateString()}</span>
                   </div>
-                  <p style={{ fontSize: '13px', marginBottom: '6px', color: 'var(--cream)' }}>{ticket.original_message}</p>
+                  <p style={{ fontSize: '13px', marginBottom: '6px', color: 'var(--text-primary)' }}>{ticket.original_message}</p>
                   <p style={{ fontSize: '11px', color: 'var(--text-secondary)', fontStyle: 'italic', lineHeight: '1.5' }}>{ticket.reply}</p>
                 </motion.div>
               ))}

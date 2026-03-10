@@ -66,7 +66,7 @@ export default function AdminDashboard() {
               { label: 'HIGH URGENCY', value: stats.high, cls: 'red' },
             ].map((s, i) => (
               <motion.div key={s.label} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} className={`stat-card ${s.cls}`}>
-                <div style={{ fontFamily: 'Bebas Neue', fontSize: '44px', lineHeight: '1', marginBottom: '4px', color: s.cls === 'orange' ? 'var(--orange)' : s.cls === 'yellow' ? 'var(--yellow)' : s.cls === 'green' ? 'var(--green)' : 'var(--red)' }}>{s.value}</div>
+                <div style={{ fontFamily: 'Bebas Neue', fontSize: '44px', lineHeight: '1', marginBottom: '4px', color: s.cls === 'orange' ? 'var(--brand-primary)' : s.cls === 'yellow' ? 'var(--yellow)' : s.cls === 'green' ? 'var(--green)' : 'var(--red)' }}>{s.value}</div>
                 <div style={{ fontSize: '10px', color: 'var(--text-secondary)', fontFamily: 'Manrope', fontWeight: '600', letterSpacing: '0.1em' }}>{s.label}</div>
               </motion.div>
             ))}
@@ -95,13 +95,13 @@ export default function AdminDashboard() {
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                       <span className={`badge badge-${ticket.urgency === 'high' ? 'high' : 'normal'}`}>{ticket.urgency}</span>
                       <span className={`badge badge-${ticket.status}`}>{ticket.status}</span>
-                      <span className="badge" style={{ background: 'var(--orange-dim)', color: 'var(--orange)', border: '1px solid var(--border-orange)' }}>{ticket.intent}</span>
-                      <span className="badge" style={{ background: 'var(--cream-dim)', color: 'var(--cream)', border: '1px solid rgba(245,240,232,0.1)' }}>{ticket.language}</span>
+                      <span className="badge" style={{ background: 'var(--accent-dim)', color: 'var(--brand-primary)', border: '1px solid var(--accent-border)' }}>{ticket.intent}</span>
+                      <span className="badge" style={{ background: 'var(--bg-hover)', color: 'var(--text-primary)', border: '1px solid var(--border)' }}>{ticket.language}</span>
                     </div>
                     <span style={{ fontSize: '11px', color: 'var(--text-muted)', whiteSpace: 'nowrap', fontFamily: 'Manrope' }}>{new Date(ticket.created_at).toLocaleDateString()}</span>
                   </div>
 
-                  <p style={{ fontSize: '13px', marginBottom: '6px', color: 'var(--cream)' }}>{ticket.original_message}</p>
+                  <p style={{ fontSize: '13px', marginBottom: '6px', color: 'var(--text-primary)' }}>{ticket.original_message}</p>
                   <p style={{ fontSize: '11px', color: 'var(--text-secondary)', fontStyle: 'italic', lineHeight: '1.5', marginBottom: '14px' }}>{ticket.reply}</p>
 
                   <div style={{ display: 'flex', gap: '8px' }}>

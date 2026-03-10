@@ -37,12 +37,12 @@ export default function Login() {
         <div style={{ position: 'absolute', bottom: '-60px', right: '-60px', width: '280px', height: '280px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%)' }} />
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span className="dot dot-orange pulse" />
-          <span style={{ fontFamily: 'Manrope', fontWeight: '700', fontSize: '13px', letterSpacing: '0.08em', color: 'var(--orange)' }}>SUPPORT AGENT</span>
+          <span style={{ fontFamily: 'Manrope', fontWeight: '700', fontSize: '13px', letterSpacing: '0.08em', color: 'var(--brand-secondary)' }}>SUPPORT AGENT</span>
         </div>
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-          <h1 style={{ fontSize: '72px', lineHeight: '0.92', marginBottom: '24px', color: 'var(--cream)' }}>
+          <h1 style={{ fontSize: '72px', lineHeight: '0.92', marginBottom: '24px', color: 'var(--text-primary)' }}>
             MULTI<br />
-            <span style={{ color: 'var(--orange)', WebkitTextStroke: '1px var(--orange)', WebkitTextFillColor: 'transparent' }}>LINGUAL</span><br />
+            <span style={{ color: 'var(--brand-secondary)', WebkitTextStroke: '1px var(--brand-secondary)', WebkitTextFillColor: 'transparent' }}>LINGUAL</span><br />
             SUPPORT
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '13px', lineHeight: '1.7', maxWidth: '280px' }}>
@@ -78,7 +78,7 @@ export default function Login() {
             <div className="divider" />
             <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '12px' }}>
               No account?{' '}
-              <Link to="/register" style={{ color: 'var(--orange)', textDecoration: 'none', fontWeight: '600' }}>Create one</Link>
+              <Link to="/register" style={{ color: 'var(--brand-secondary)', textDecoration: 'none', fontWeight: '600' }}>Create one</Link>
             </p>
           </div>
         </motion.div>

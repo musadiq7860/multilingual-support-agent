@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-  baseURL: 'https://musadiq7860-multilingual-support-agent.hf.space',
+  baseURL: 'http://127.0.0.1:8001',
 })
 
 API.interceptors.request.use((config) => {
