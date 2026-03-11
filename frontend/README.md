@@ -12,7 +12,8 @@ The UI relies entirely on custom CSS (no generic component libraries) and featur
 
 ## Deployment
 
-This frontend is configured for deployment on **Vercel**. 
+This frontend is configured for deployment on **Vercel** and is currently live at:
+[https://multilingual-agent-ui.vercel.app](https://multilingual-agent-ui.vercel.app)
 
 The API client (`src/api/client.ts`) is currently pointing to the production Hugging Face Space backend:
 `https://musadiq7860-multilingual-support-agent.hf.space`
