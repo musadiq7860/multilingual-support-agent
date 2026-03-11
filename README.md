@@ -8,7 +8,7 @@ An AI-powered customer support triage system that understands complaints in any 
 
 ## Tech Stack
 
-**Backend**
+**Backend** 
 - FastAPI + Python
 - **Groq API (`llama-3.3-70b-versatile`)** for lightning-fast language detection, intent classification, sentiment analysis, and Roman Urdu/Hindi translation
 - **n8n Webhook Integration** securely triggered via FastAPI Background Tasks for automated downstream routing
