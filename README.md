@@ -29,7 +29,7 @@ An AI-powered customer support triage system that understands complaints in any 
 - Sentiment analysis — positive, neutral, negative
 - Urgency scoring — high vs normal
 - Auto-generated AI reply in customer's language using Groq
-- Secure n8n webhook trigger for real-time ticket escalation
+- Secure n8n webhook trigger for real-time ticket escalation 
 - Customer portal — submit and track tickets
 - Admin dashboard — view all tickets, filter, mark resolved
 
