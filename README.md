@@ -6,7 +6,7 @@ An AI-powered customer support triage system that understands complaints in any 
 - **Frontend (Vercel)**: [https://multilingual-agent-ui.vercel.app](https://multilingual-agent-ui.vercel.app)
 - **Backend API (Hugging Face)**: `https://musadiq7860-multilingual-support-agent.hf.space`
  
-## Tech Stack
+## Tech Stack 
 
 **Backend** 
 - FastAPI + Python
